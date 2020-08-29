@@ -3,15 +3,11 @@ Contents:
 <%=@post.content %>
 Categories: 
 <%= @post.categories.map(&:name).join(' ') %>
+Comments:
+<% @post.comments.each do |com| %>
+    <%= com.user.username %> says: <%= com.content %>
+<% end %>
 
-<ul>
-    <% @post.comments.each do |com| %>
-        <li><%= com.user.username %></li>
-        <ul>
-        <li><%= com.content %></li>
-        </ul>
-    <% end %>
-</ul>
 
 Commentors:
 <ul>
